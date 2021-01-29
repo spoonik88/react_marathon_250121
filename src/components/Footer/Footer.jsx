@@ -1,7 +1,7 @@
 import React from 'react';
-import s from "./Footer.module.scss";
+import s from './Footer.module.scss';
 
-const Footer =()=>{
+const Footer = () => {
  return (
     <footer>
         <div className={s.wrapper}>
