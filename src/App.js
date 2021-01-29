@@ -1,12 +1,12 @@
-import React from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Layout from "./components/Layout/Layout";
+import React from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Layout from './components/Layout/Layout';
 // import firstBackground from "./images/bg1.jpg";
-import twoBackground from "./images/bg2.jpg";
-import treeBackground from "./images/bg3.jpg";
-import PokemonCard from "./components/PokemonCard/PokemonCard";
+import twoBackground from './images/bg2.jpg';
+import treeBackground from './images/bg3.jpg';
+import PokemonCard from './components/PokemonCard/PokemonCard';
 
 const POKEMONS = [
   {

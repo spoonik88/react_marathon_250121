@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import {useState} from 'react';
-import s from "./PokemonCard.module.scss";
+import s from './PokemonCard.module.scss';
 import CardBackedImg from './../../images/card-back-side.jpg'
 
 const PokemonCard = ({name,values,id,type,img}) => {
