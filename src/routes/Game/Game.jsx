@@ -18,16 +18,16 @@ const GamePage = () => {
 
   const onCardClick= (id) =>{
 
-      const newPokemons = isPokemons.map((card) =>
-        card.id === id
-          ? { ...card, isActive: !card.isActive }
-          : { ...card, isActive: card.isActive }
+      const newPokemons = isPokemons.map((i) =>
+        i.id === id
+          ? { ...i, isActive: !i.isActive }
+          : { ...i, isActive: i.isActive }
       );
       
       setPokemons(newPokemons);
       
   }
-  React.useEffect(() => {}, [isPokemons]);
+ 
 
   return (
     <>
