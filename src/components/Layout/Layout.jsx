@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames'
 import s from './Layout.module.scss';
 
 class Layout extends React.Component {
@@ -17,7 +18,7 @@ class Layout extends React.Component {
               <h3>{title}</h3>
               <span className={s.separator}></span>
             </div>
-            <div className={`${s.desc} ${s.full}`}>
+            <div className={cn(s.desc,s.full)}>
               <p>{children}</p>
             </div>
           </article>
