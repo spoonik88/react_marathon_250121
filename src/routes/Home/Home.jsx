@@ -1,15 +1,14 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
 import Layout from "../../components/Layout/Layout";
 // import firstBackground from "./images/bg1.jpg";
 import twoBackground from "../../images/bg2.jpg";
 import treeBackground from "../../images/bg3.jpg";
 import PokemonCard from "../../components/PokemonCard/PokemonCard";
-import "./Home.module.scss";
-import MenuHeader from "../../components/MenuHeader/MenuHeader";
+import s from "./Home.module.scss";
 
-const POKEMONS = [
+
+export const POKEMONS = [
   {
     abilities: ["keen-eye", "tangled-feet", "big-pecks"],
     stats: {
@@ -134,14 +133,13 @@ const POKEMONS = [
 const Homepage = ( { onChangePage }) => {
 
   const handleClickButton = (page) => {
-    console.log("<HomePage/>");
+    
     onChangePage && onChangePage(page);
     
   };
 
   return (
-    <>
-    <MenuHeader/>
+    <>   
       <Header
         title={"Pokemon games"}
         desrc={"Marathon 25/01/2021"}
@@ -165,7 +163,7 @@ const Homepage = ( { onChangePage }) => {
         </p>
       </Layout>
       <Layout id="1" title={"Collection of cards"} colorBg={"#fff"}>
-        <div className="flex">
+        <div className={s.flex}>
           {POKEMONS.map((i) => (
             <PokemonCard
               img={i.img}
@@ -173,6 +171,7 @@ const Homepage = ( { onChangePage }) => {
               values={i.values}
               id={i.id}
               type={i.type}
+              
             />
           ))}
         </div>
@@ -195,7 +194,6 @@ const Homepage = ( { onChangePage }) => {
         </p>
       </Layout>
 
-      <Footer />
     </>
   );
 };

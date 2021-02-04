@@ -2,7 +2,7 @@ import React from 'react';
 import s from './NavBar.module.scss';
 import cn from 'classnames'
 
-const NavBar = ({isActive,onMenuClick}) => { 
+const NavBar = ({isActive, onMenuClick, bgActive = false}) => { 
   
     const handleNavBarClick = () => {           
       onMenuClick && onMenuClick(isActive)                  
@@ -10,14 +10,14 @@ const NavBar = ({isActive,onMenuClick}) => {
 
  return (
      <>
-  <nav id={s.navbar}>
+  <nav id={s.navbar} className={ cn({[s.bgActive]:bgActive})}>
   <div className={s.navWrapper}>
     <p className={s.brand}>
       LOGO
     </p>
-    <a className={cn(s.menuButton, {[s.active]:isActive})} onClick={handleNavBarClick}>
+    <div className={cn(s.menuButton, {[s.active]:isActive})} onClick={handleNavBarClick}>
       <span />
-    </a>
+    </div>
   </div>
 </nav>
    </>
