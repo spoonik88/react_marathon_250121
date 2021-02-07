@@ -6,19 +6,19 @@ import { Link } from "react-router-dom";
 const MENU = [
   {
     title: "Home",
-    to: "home",
+    to: "/",
   },
   {
     title: "GAME",
-    to: "game",
+    to: "/game",
   },
   {
     title: "ABOUT",
-    to: "about",
+    to: "/about",
   },
   {
     title: "CONTACT",
-    to: "contact",
+    to: "/contact",
   },
 ];
 

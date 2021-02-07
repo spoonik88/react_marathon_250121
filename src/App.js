@@ -8,6 +8,10 @@ import Contact from "./routes/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import cn from "classnames";
 import s from "./App.module.scss";
+import database from "./service/firebase";
+// database.ref('pokemons').once('value', (snapshot)=>{
+//   console.log(snapshot.val())
+// })
 
 const App = () => {
   const match = useRouteMatch("/");
@@ -24,7 +28,7 @@ const App = () => {
           >
             <Switch>
               <Route path="/" exact component={Homepage} />
-              <Route path="/home" component={Homepage} />
+              {/* <Route path="/home" component={Homepage} /> */}
               <Route path="/game" component={GamePage} />
               <Route path="/about" component={About} />
               <Route path="/contact" component={Contact} />
