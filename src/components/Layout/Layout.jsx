@@ -19,7 +19,7 @@ class Layout extends React.Component {
               <span className={s.separator}></span>
             </div>
             <div className={cn(s.desc,s.full)}>
-              <p>{children}</p>
+              <div>{children}</div>
             </div>
           </article>
         </div>

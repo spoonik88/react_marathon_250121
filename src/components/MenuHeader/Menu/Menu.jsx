@@ -6,19 +6,19 @@ import { Link } from "react-router-dom";
 const MENU = [
   {
     title: "Home",
-    to: "home",
+    to: "/",
   },
   {
     title: "GAME",
-    to: "game",
+    to: "/game",
   },
   {
     title: "ABOUT",
-    to: "about",
+    to: "/about",
   },
   {
     title: "CONTACT",
-    to: "contact",
+    to: "/contact",
   },
 ];
 
@@ -34,7 +34,7 @@ const Menu = ({ isActive,onMenuClick}) => {
     <>
       <div className={cn(s.menuContainer, {
          [s.active] : isActive === true,
-          [s.deactive] : isActive === false
+          [s.deactive] : !isActive 
       })}>
         <div className={s.overlay} />
         <div className={s.menuItems}>

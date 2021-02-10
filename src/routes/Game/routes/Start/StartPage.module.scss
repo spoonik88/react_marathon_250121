@@ -1,0 +1,39 @@
+.flex {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
+    // justify-content: center;
+    // align-items: center;
+    // flex-wrap: wrap;
+}
+
+.buttonWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    height: 2rem;
+    max-width: max-content;
+    padding: 0rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    background: #dd48a8;
+    font-weight: 700;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #dd48a8;
+        background: transparent;
+        color: #000;
+    }
+    &:active {
+        border: 1px solid transparent;
+    }
+}
+
+.starGame {
+    margin: 2rem;
+}
