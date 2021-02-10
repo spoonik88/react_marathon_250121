@@ -9,7 +9,7 @@ const PokemonCard = ({name,values,id,type,img, onClick,isActive,className,minimi
     const handleCardClick = () => {        
         onClick && onClick(id);           
     }
-console.log(isSelected)
+
 return (
     <div className={cn(className, s.size, s.pokemonCard, {[s.selected]: isSelected},{[s.active]: isActive})} onClick={handleCardClick}>
     <div className={s.cardFront}>

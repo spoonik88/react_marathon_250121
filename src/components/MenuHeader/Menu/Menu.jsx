@@ -34,7 +34,7 @@ const Menu = ({ isActive,onMenuClick}) => {
     <>
       <div className={cn(s.menuContainer, {
          [s.active] : isActive === true,
-          [s.deactive] : isActive === false
+          [s.deactive] : !isActive 
       })}>
         <div className={s.overlay} />
         <div className={s.menuItems}>

@@ -146,7 +146,7 @@ const Homepage = ( { onChangePage }) => {
         onClickButton={handleClickButton}
       />
       <Layout urlBg={treeBackground} id="0" title={"Regulations"}>
-        <p>
+        
           In the game two players face off against one another, one side playing
           as "blue", the other as "red" on a 3x3 grid. Each player has five
           cards in a hand and the aim is to capture the opponent's cards by
@@ -160,24 +160,25 @@ const Homepage = ( { onChangePage }) => {
           into the opponent's color. If the player's rank is higher, the
           opponent's card will be captured and changed into the player's color
           instead.{" "}
-        </p>
+        
       </Layout>
       <Layout id="1" title={"Collection of cards"} colorBg={"#fff"}>
         <div className={s.flex}>
-          {POKEMONS.map((i) => (
+          {POKEMONS.map((i,index) => (
             <PokemonCard
               img={i.img}
               name={i.name}
               values={i.values}
               id={i.id}
               type={i.type}
+              key={index}
               
             />
           ))}
         </div>
       </Layout>
       <Layout urlBg={twoBackground} id="2" title={"Regulations"}>
-        <p>
+        
           In the game two players face off against one another, one side playing
           as "blue", the other as "red" on a 3x3 grid. Each player has five
           cards in a hand and the aim is to capture the opponent's cards by
@@ -191,7 +192,7 @@ const Homepage = ( { onChangePage }) => {
           into the opponent's color. If the player's rank is higher, the
           opponent's card will be captured and changed into the player's color
           instead.{" "}
-        </p>
+        
       </Layout>
 
     </>

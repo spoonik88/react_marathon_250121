@@ -1,3 +1,3 @@
 import React from 'react'
-import { POKEMONS } from '../routes/Home/Home'
-export const PokemonContext = React.createContext(POKEMONS)
+
+export const PokemonContext = React.createContext(null)
