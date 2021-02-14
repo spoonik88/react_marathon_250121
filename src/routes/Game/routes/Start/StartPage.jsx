@@ -63,7 +63,7 @@ const StartPage = () => {
         </div>
         <div className={s.flex}>
           {Object.entries(pokemons).map(
-            ([key, { id, img, values, type, name,minimize,selected = false }]) => (
+            ([key, { id, img, values, type, name,selected=false }]) => (
               <PokemonCard
                 key={key}
                 img={img}
@@ -72,9 +72,8 @@ const StartPage = () => {
                 id={id}
                 type={type}
                 isActive={true}
-                isSelected = {selected}
-                minimize={minimize}
-                className={s.card}
+                isSelected = {selected}                
+                className={s.card}                
                 onClick={()=>
                   {
                     if (Object.keys(selectContext.pokemons).length < 5 || selected){

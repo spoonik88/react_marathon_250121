@@ -1,0 +1,48 @@
+.playerOne {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 5rem 1rem 0;
+}
+
+.playerTwo {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    // padding: 5rem 1rem 0;
+}
+
+.size {
+    max-width: 230px;
+    height: 360px;
+    margin: 0.2rem;
+}
+
+.wrap {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+.btn {
+    height: 2rem;
+    max-width: max-content;
+    padding: 0rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    background: #dd48a8;
+    font-weight: 700;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #dd48a8;
+        background: transparent;
+        color: #000;
+    }
+    &:active {
+        border: 1px solid transparent;
+    }
+}

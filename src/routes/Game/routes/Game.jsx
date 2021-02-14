@@ -12,6 +12,7 @@ import StartPage from "./Start/StartPage";
 const GamePage = () => {
   
   const [pokemons, setPokemons] = useState({});
+  const [pokemonsDB, setPokemonsDB] = useState({});
   const match = useRouteMatch();
   
   const handlerIsSelect = (key,pokemon) => {
@@ -27,12 +28,23 @@ const GamePage = () => {
         [key]:pokemon
       }
     })
-    console.log(pokemon)
+     console.log(pokemon)
+  }
+  const handlerIsSelectDB = (player2) => {
+    setPokemonsDB( prevState => {
+      
+        const copyState = {...prevState} 
+
+        return {...copyState,...player2}
+     
+    })
+     
   }
 
+   console.log(pokemonsDB)
   
   return (
-    <PokemonContext.Provider value={{pokemons:pokemons, isSelected:handlerIsSelect }}>
+    <PokemonContext.Provider value={{pokemons:pokemons, isSelected:handlerIsSelect, pokemonsDB:pokemonsDB,isSelectedDB:handlerIsSelectDB }}>
       <Switch>
           <Route path={`${match.path}/`} exact component={StartPage} />
           <Route path={`${match.path}/board`} component={BoardPage} />
