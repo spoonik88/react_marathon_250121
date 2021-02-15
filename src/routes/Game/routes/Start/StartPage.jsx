@@ -47,7 +47,7 @@ const StartPage = () => {
     }))
   }
  
-  console.log(Object.keys(selectContext.pokemons).length)
+  // console.log(Object.keys(selectContext.pokemons).length)
  
   return (
     <>
