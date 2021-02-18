@@ -18,7 +18,7 @@ const Header = ({ title, desrc, onClickButton }) => {
             <div className={s.container}>
                 <h1>{title}</h1>
                 <p>{desrc}</p>
-                <button onClick={handleClick}>Start Game</button>
+                <button className={s.btn} onClick={handleClick}>Start Game</button>
             </div>
             
         </header>

@@ -23,7 +23,7 @@ const MENU = [
 ];
 
 
-const Menu = ({ isActive,onMenuClick}) => {
+const Menu = ({ isActive, onMenuClick}) => {
 
 
   const handleClickMenu= () =>{
