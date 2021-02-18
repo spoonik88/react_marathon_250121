@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './PokemonCard.module.scss';
 import cn from 'classnames'
-// import CardBackedImg from './../../images/card-back-side.jpg'
+
 
 
 const PokemonCard = ({name, values, id, type, img, onClick, isActive, className, minimize, isSelected, possession}) => {
