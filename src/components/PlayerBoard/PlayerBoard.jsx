@@ -28,7 +28,7 @@ const PlayerBoard = ({ card,onClickCard,player }) => {
             id={i.id}
             type={i.type}
             isActive={true}
-            // isSelected={is}
+            isSelected={isSelect}
             minimize={true}
             className={s.card}
           />

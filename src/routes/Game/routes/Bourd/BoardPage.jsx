@@ -6,10 +6,10 @@ import { useHistory } from "react-router-dom";
 import PlayerBoard from "../../../../components/PlayerBoard/PlayerBoard";
 
 const BoardPage = () => {
-  const { pokemons,handlerIsSelectDB} = useContext(PokemonContext);
-  const pokemonContext=useContext(PokemonContext);
- 
-  
+  const { pokemons, isSelectedDB, clearSelectCart } = useContext(
+    PokemonContext
+  );
+
   const history = useHistory();
   const [board, setBoard] = useState([]);
   const [player1, setPlayer1] = useState(() => {
@@ -20,24 +20,22 @@ const BoardPage = () => {
   });
   const [player2, setPlayer2] = useState([]);
   const [choiceCard, setChoiceCard] = useState(null);
-  const [steps,setSteps]=useState(0);
-  
-  const counterWin = (board,player1,player2) => {
-      let player1Count = player1.length;
-      let player2Count = player2.length;
+  const [steps, setSteps] = useState(0);
 
-      board.forEach( e => {
-        if(e.card.possession === "red"){
-          player2Count++
-        }
-        if(e.card.possession === "blue"){
-          player1Count++
-        }
-      });
-      return [player1Count,player2Count]
+  const counterWin = (board, player1, player2) => {
+    let player1Count = player1.length;
+    let player2Count = player2.length;
 
-  }
-  
+    board.forEach((e) => {
+      if (e.card.possession === "red") {
+        player2Count++;
+      }
+      if (e.card.possession === "blue") {
+        player1Count++;
+      }
+    });
+    return [player1Count, player2Count];
+  };
 
   useEffect(async () => {
     const boardResponse = await fetch(
@@ -50,32 +48,22 @@ const BoardPage = () => {
       "https://reactmarathon-api.netlify.app/api/create-player"
     );
     const player2Request = await player2Response.json();
+    isSelectedDB(player2Request.data);
     setPlayer2(() => {
       return player2Request.data.map((i) => ({
         ...i,
         possession: "red",
       }));
     });
-    
   }, []);
 
-
-    
- 
-
-  
   const handelClickPosition = async (position) => {
-    
-    // console.log("yjdst gjrbvjys",player2)
-    
-    // console.log(s.card)
-    pokemonContext.isSelectedDB(player2)
     if (choiceCard) {
       const params = {
         position,
         card: choiceCard,
         board,
-        className:s.card
+        className: s.card,
       };
 
       const res = await fetch(
@@ -90,53 +78,48 @@ const BoardPage = () => {
       );
 
       const request = await res.json();
-      
-        
 
-      if(choiceCard.player === 1){
-        setPlayer1( prevState => prevState.filter(i => i.id !== choiceCard.id))
+      if (choiceCard.player === 1) {
+        setPlayer1((prevState) =>
+          prevState.filter((i) => i.id !== choiceCard.id)
+        );
       }
-      
-      if(choiceCard.player === 2){
-        setPlayer2( prevState => prevState.filter(i => i.id !== choiceCard.id))
+
+      if (choiceCard.player === 2) {
+        setPlayer2((prevState) =>
+          prevState.filter((i) => i.id !== choiceCard.id)
+        );
       }
-      setBoard(request.data)
-      setSteps(prevState=>{
-        const count =prevState+1
+      setBoard(request.data);
+
+      setSteps((prevState) => {
+        const count = prevState + 1;
         return count;
-      })
-      
+      });
     }
-  
-
+   
   };
 
-useEffect(
-  () =>{
-if(steps === 9){
-   const [count1,count2] = counterWin(board,player1,player2)
+  useEffect(() => {
+    if (steps === 9) {
+      const [count1, count2] = counterWin(board, player1, player2);
 
-   if(count1 > count2){
-         alert('win')
-         history.push('/game/finish')
-   }else if (count1 < count2){
-     alert("lose")
-     history.replace('/game')
-   } else(
-     alert("draw")
-   )
+      if (count1 > count2) {
+        alert("win");
 
-}
-
-  },[steps]
+        history.push("/game/finish");
+      } else if (count1 < count2) {
+        alert("lose");
+        history.replace("/game");
+      } else alert("draw");
+    }
+  }, [steps]);
 
 
-)
-
-if(Object.keys(pokemons).length === 0){
-  history.replace("/game")
-}
-
+  if (Object.keys(pokemons).length === 0) {
+    history.replace("/game");
+  }
+  
 
   return (
     <div className={s.root}>
@@ -158,13 +141,12 @@ if(Object.keys(pokemons).length === 0){
           </div>
         ))}
       </div>
-      <div className={s.playerTwo} >
+      <div className={s.playerTwo}>
         <PlayerBoard
           card={player2}
           player={2}
           onClickCard={(card) => setChoiceCard(card)}
-          // onClickAddCard ={()=>(player2)}
-
+          onCardAddContext={(player2) => isSelectedDB(player2)}
         />
       </div>
     </div>

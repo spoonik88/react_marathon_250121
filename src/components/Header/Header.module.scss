@@ -263,3 +263,24 @@
         width: 100%;
     }
 }
+
+.btn {
+    height: 2rem;
+    max-width: max-content;
+    padding: 0rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+    background: #dd48a8;
+    font-weight: 700;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid #dd48a8;
+        background: transparent;
+        color: #fff;
+    }
+    &:active {
+        border: 1px solid transparent;
+    }
+}
